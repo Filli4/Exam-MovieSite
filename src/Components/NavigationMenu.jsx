@@ -1,64 +1,88 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
-
 function NavigationMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav className="bg-orange-500 w-full flex justify-between items-center p-4 shadow-lg">
-    <ul className="flex space-x-6">
-      <li className="flex">
-        <Link
-          to="/"
-          className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2"
-        >
-          Home
-        </Link>
-      </li>
-      <li className="flex">
-        <Link
-          to="/Movies"
-          className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2"
-        >
-          Movies
-        </Link>
-      </li>
-      <li className="flex">
-        <Link
-          to="/TvShow"
-          className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2"
-        >
-          TV Shows
-        </Link>
-      </li>
-      <li className='flex'>
-          <Link to="/Favorite"
-          className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2">
-          Favorite
-          </Link>
-        </li>
-        </ul>
-        <div>
-         
+    <nav className="bg-orange-500 w-full p-4 shadow-lg">
+      <div className="flex justify-between items-center">
+        {/* Logo or Branding */}
+        <div className="text-white ">
+          <Link to="/">🎭</Link>
         </div>
-      <ul className='flex justify-end items-center'>
-        <li className='flex'>
-          <Link to="/Search"
-           className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2">
-          Search
-          </Link>
-        </li>
-        <li className='flex'>
-          <Link to="/Login"
-           className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2">
-          Login
-          </Link>
-        </li>
-      </ul>
-    
-  </nav>
-  
+
+        
+        <button
+          className="block lg:hidden text-white focus:outline-none"
+          onClick={toggleMenu}
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}
+            />
+          </svg>
+        </button>
+
+       
+        <ul className={`lg:flex lg:space-x-6 items-center ${isOpen ? 'block' : 'hidden'} lg:block`}>
+          <li>
+            <Link
+              to="/"
+              className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2"
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/Movies"
+              className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2"
+            >
+              Movies
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/TvShow"
+              className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2"
+            >
+              TV Shows
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/Favorite"
+              className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2"
+            >
+              Favorite
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/Search"
+              className="text-white hover:bg-lime-300 hover:text-black transition duration-300 rounded-lg px-3 py-2"
+            >
+              Search
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
   );
 }
 
 export default NavigationMenu;
-

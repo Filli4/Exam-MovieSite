@@ -27,10 +27,10 @@ console.log(movies);
   }
 
   return (
-    <>
+    <div className='bg-orange-600'>
       <NavigationMenu />
-      
-      <div className="flex flex-wrap justify-center">
+      <h1 className="text-center text-2xl font-semibold mb-4">Movies</h1>
+      <div className="flex flex-wrap justify-center bg-orange-600">
         {movies?.Search?.map((movie) => (
           <MovieCard
             key={movie.imdbID}
@@ -38,7 +38,7 @@ console.log(movies);
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 
