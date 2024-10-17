@@ -3,7 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import NavigationMenu from '../Components/NavigationMenu';
 import MovieCard from '../Components/MovieCard';
-import { Helmet } from 'react-helmet'; 
+import { Helmet } from 'react-helmet-async';
 function FavoritePage() {
   const favorites = useSelector((state) => state.favorites.items); 
 
@@ -12,7 +12,7 @@ function FavoritePage() {
       <Helmet>
         <title>Your Favorite Movies</title>
         <meta name="description" content="Browse your favorite movies and TV shows." />
-        <link rel="canonical" href={window.location.href} />
+        <link rel="canonical" href='http://localhost:5173/Favorite' />
       </Helmet>
       <NavigationMenu />
       <h1 className="text-center text-2xl font-semibold mb-4">Favorite Movies & TV Shows</h1>

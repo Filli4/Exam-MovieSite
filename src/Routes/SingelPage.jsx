@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import NavigationMenu from "../Components/NavigationMenu";
+import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from "react-redux";
 import { FetchMovieById } from "./../Store/Slice/MovieAndTvShowSlice";
 import { addFavorite, removeFavorite } from '../Store/Slice/FavoritesSlice';
@@ -40,6 +41,12 @@ function SingelPage() {
 
   return (
     <div className="flex flex-col">
+       <Helmet>
+        <title>{movieDetail?.Title ? `${movieDetail.Title} - Details` : "Movie Details"}</title>
+        <meta name="description" content={movieDetail?.Plot || "Find the details of the selected movie."} />
+        <meta name="keywords" content={movieDetail?.Genre ? `${movieDetail.Genre}, movies, TV shows, cinema` : "movies, TV shows, cinema"} />
+        <link rel="canonical" href={`http://localhost:5173/Detail/${imdbID}`} />
+      </Helmet>
     <NavigationMenu />
   
     <div className="flex justify-center items-center min-h-screen w-full bg-orange-600 p-4">
