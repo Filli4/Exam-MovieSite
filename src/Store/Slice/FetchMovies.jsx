@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const ApiKey = "a02a3bfa"; // Your actual API key
+const ApiKey = "a02a3bfa"; 
 
 export const FetchMovies = createAsyncThunk(
-  "Movies/FetchMovies",  // Fix action name typo
+  "Movies/FetchMovies",  
   async (movieTitle) => {
     try {
       const response = await fetch(`http://www.omdbapi.com/?s=${movieTitle}&type=movie&apikey=${ApiKey}`);
@@ -16,7 +16,7 @@ export const FetchMovies = createAsyncThunk(
       return data;
     } catch (error) {
       console.error(error);
-      throw error;  // Ensure error propagates to rejected case
+      throw error; 
     }
   }
 );

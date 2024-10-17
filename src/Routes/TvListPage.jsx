@@ -1,18 +1,19 @@
-// src/Pages/TvListPage.jsx
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FetchTvShows } from '../Store/Slice/FetchTvShows'; // Adjust to FetchTvShows
-import MovieCard from '../Components/MovieCard'; // Use the same MovieCard component for TV shows
+import { FetchTvShows } from '../Store/Slice/FetchTvShows'; 
+import { Helmet } from 'react-helmet-async';
+import MovieCard from '../Components/MovieCard'; 
 import NavigationMenu from '../Components/NavigationMenu';
 
 const TvListPage = () => {
   const dispatch = useDispatch();
   
-  const { data: series, loading, error } = useSelector((state) => state.TvShows || {}); // Fetch from the correct state slice
+  const { data: series, loading, error } = useSelector((state) => state.TvShows || {}); 
   console.log(series);
 
   useEffect(() => {
-    dispatch(FetchTvShows('2012','batman')); // Correct action for fetching TV shows
+    dispatch(FetchTvShows('hit')); 
   }, [dispatch]);
 
   if (loading) {
@@ -24,17 +25,26 @@ const TvListPage = () => {
   }
 
   return (
-    <>
+    <div className='bg-orange-600'>
+          <Helmet>
+        <title>TV Shows</title>
+        <meta name="description" content="Browse through a collection of popular TV shows." />
+        <meta name="keywords" content="TV shows, series, popular TV, best TV shows" />
+        <link rel="canonical" href="http://localhost:5173/TvShow" />
+        
+      </Helmet>
       <NavigationMenu /> 
-      <div className="flex flex-wrap justify-center">
+      <h1 className="text-center text-2xl font-semibold mb-4">Tv Shows</h1>
+      <div className="flex flex-wrap justify-center bg-orange-600">
+        
         {series?.Search?.map((show) => (
           <MovieCard
             key={show.imdbID}
-            movie={show}  // Pass the entire show object as 'movie' prop
+            movie={show}  
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

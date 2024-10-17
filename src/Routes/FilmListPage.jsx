@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FetchMovies } from '../Store/Slice/FetchMovies'; 
 import MovieCard from '../Components/MovieCard';
 import NavigationMenu from '../Components/NavigationMenu'; 
+import { Helmet } from 'react-helmet-async';
 
 function FilmListPage() {
   const dispatch = useDispatch();
@@ -27,10 +28,16 @@ console.log(movies);
   }
 
   return (
-    <>
+    <div className='bg-orange-600'>
+       <Helmet>
+        <title>Popular Movies from 2000</title>
+        <meta name="description" content="Browse popular movies from the year 2000." />
+        <meta name="keywords" content="movies, 2000, popular films, entertainment" />
+        <link rel="canonical" href="http://localhost:5173/Movies" />
+      </Helmet>
       <NavigationMenu />
-      
-      <div className="flex flex-wrap justify-center">
+      <h1 className="text-center text-2xl font-semibold mb-4">Movies</h1>
+      <div className="flex flex-wrap justify-center bg-orange-600">
         {movies?.Search?.map((movie) => (
           <MovieCard
             key={movie.imdbID}
@@ -38,7 +45,7 @@ console.log(movies);
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

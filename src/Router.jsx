@@ -13,5 +13,5 @@ export const Router = createBrowserRouter([
   { path: "/TvShow", element: <TvListPage /> },
   { path: "/Search", element: <SearchPage /> },
   { path: "/Favorite", element: <FavoritePage /> },
-  { path: "/SingelPage", element: <SingelPage /> },
+  { path: "/Detail/:imdbID", element: <SingelPage /> },
 ]);
