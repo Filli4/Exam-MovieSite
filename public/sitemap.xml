@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://localhost:5173/</loc>
+    <lastmod>2024-10-17</lastmod>
+    
+  </url>
+  <url>
+    <loc>http://localhost:5173/Movies</loc>
+    <lastmod>2024-10-17</lastmod>
+   
+  </url>
+  <url>
+    <loc>http://localhost:5173/TvShow</loc>
+    <lastmod>2024-10-17</lastmod>
+    
+  </url>
+  <url>
+    <loc>http://localhost:5173/Favorite</loc>
+    <lastmod>2024-10-17</lastmod>
+    
+  </url>
+</urlset>

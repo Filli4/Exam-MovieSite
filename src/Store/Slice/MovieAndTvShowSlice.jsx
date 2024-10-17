@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const ApiKey = "a02a3bfa"; 
 
-// Thunk for fetching movies and TV shows by title
+
 export const FetchMoviesAndTvShows = createAsyncThunk(
-  "MoviesAndTvShows/FetchMoviesAndTvShows",  // Fixed action name to be more appropriate
+  "MoviesAndTvShows/FetchMoviesAndTvShows",  
   async (movieTitle) => {
     try {
       const response = await fetch(`http://www.omdbapi.com/?s=${movieTitle}&apikey=${ApiKey}`);
@@ -22,7 +22,7 @@ export const FetchMoviesAndTvShows = createAsyncThunk(
   }
 );
 
-// Thunk for fetching a specific movie by ID
+
 export const FetchMovieById = createAsyncThunk(
   "MoviesAndTvShows/FetchMovieById",
   async (imdbID) => {
@@ -52,7 +52,7 @@ const MovieAndTvShowSlice = createSlice({
   },
   reducers: {},
   extraReducers: (builder) => {
-    // Handle FetchMoviesAndTvShows
+   
     builder
       .addCase(FetchMoviesAndTvShows.pending, (state) => {
         state.loading = true;
@@ -67,7 +67,7 @@ const MovieAndTvShowSlice = createSlice({
         state.error = action.error.message;
       });
 
-    // Handle FetchMovieById
+   
     builder
       .addCase(FetchMovieById.pending, (state) => {
         state.loading = true;

@@ -8,17 +8,17 @@ const SearchPage = () => {
   const dispatch = useDispatch();
 
 
-  // If you want to handle the search here, you can define the function:
+ 
   const handleSearch = (movieTitle) => {
     if (movieTitle) {
-      dispatch(FetchMoviesAndTvShows(movieTitle)); // Fetch movies based on user input
+      dispatch(FetchMoviesAndTvShows(movieTitle));
     }
   };
 
   return (
     <div className="bg-orange-600 justify-center items-center flex flex-col flex-wrap">
       <NavigationMenu />
-      <SearchBar onSearch={handleSearch} /> {/* Pass the handleSearch function to SearchBar */}
+      <SearchBar onSearch={handleSearch} /> 
     </div>
   );
 };

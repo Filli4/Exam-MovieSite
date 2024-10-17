@@ -1,4 +1,4 @@
-// src/Pages/FavoritePage.jsx
+
 import React from 'react';
 import { useSelector } from 'react-redux';
 import NavigationMenu from '../Components/NavigationMenu';

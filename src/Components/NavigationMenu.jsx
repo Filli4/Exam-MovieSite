@@ -11,7 +11,7 @@ function NavigationMenu() {
   return (
     <nav className="bg-orange-500 w-full p-4 shadow-lg">
       <div className="flex justify-between items-center">
-        {/* Logo or Branding */}
+      
         <div className="text-white ">
           <Link to="/">🎭</Link>
         </div>

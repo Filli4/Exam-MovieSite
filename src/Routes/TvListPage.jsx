@@ -1,8 +1,8 @@
-// src/Pages/TvListPage.jsx
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FetchTvShows } from '../Store/Slice/FetchTvShows'; // Adjust to FetchTvShows
-import MovieCard from '../Components/MovieCard'; // Use the same MovieCard component for TV shows
+import { FetchTvShows } from '../Store/Slice/FetchTvShows'; 
+import MovieCard from '../Components/MovieCard'; 
 import NavigationMenu from '../Components/NavigationMenu';
 
 const TvListPage = () => {

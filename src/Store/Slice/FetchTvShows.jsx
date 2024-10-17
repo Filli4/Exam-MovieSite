@@ -1,7 +1,7 @@
-// src/Store/Slice/FetchTvShows.js
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const ApiKey = "a02a3bfa"; // Your actual API key
+const ApiKey = "a02a3bfa"; 
 
 export const FetchTvShows = createAsyncThunk(
   "TvShows/FetchTvShows",

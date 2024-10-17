@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { FetchMoviesAndTvShows } from './Store/Slice/MovieAndTvShowSlice';  // Correctly import the thunk action
+import { FetchMoviesAndTvShows } from './Store/Slice/MovieAndTvShowSlice';  
 import NavigationMenu from './Components/NavigationMenu';
 import MovieCard from './Components/MovieCard';
 
 function App() {
   const dispatch = useDispatch();
 
-  // Rename state variable to avoid conflict with the import
+ 
   const { data: movies = null, loading = false, error = null } = useSelector((state) => state.MoviesAndTvShows || {});
   console.log(movies);
   useEffect(() => {
-    // Dispatch the correct thunk action
-    dispatch(FetchMoviesAndTvShows("super"));  // Fetch movies from the year 2000
+  
+    dispatch(FetchMoviesAndTvShows("super")); 
   }, [dispatch]);
 
   return (

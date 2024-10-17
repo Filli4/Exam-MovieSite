@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux"; // Import dispatch from react-redux
-import { FetchMoviesAndTvShows } from "./../Store/Slice/MovieAndTvShowSlice"; // Import your action
+import { useDispatch, useSelector } from "react-redux"; 
+import { FetchMoviesAndTvShows } from "./../Store/Slice/MovieAndTvShowSlice"; 
 import MovieCard from "../Components/MovieCard";
 
 function SearchBar() {
   const [movieTitle, setMovieTitle] = useState("");
-  const dispatch = useDispatch(); // Initialize dispatch
+  const dispatch = useDispatch(); 
 
-  // Accessing the movie data, loading, and error from Redux store
+  
   const {
     data: movies,
     loading,
@@ -16,14 +16,14 @@ function SearchBar() {
 
   const handleSearch = (movieTitle) => {
     if (movieTitle) {
-      dispatch(FetchMoviesAndTvShows(movieTitle)); // Fetch movies based on user input
+      dispatch(FetchMoviesAndTvShows(movieTitle)); 
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearch(movieTitle); // Call handleSearch with the movie title
-    setMovieTitle(""); // Clear input after submitting
+    handleSearch(movieTitle); 
+    setMovieTitle(""); 
   };
 
   return (
@@ -32,7 +32,7 @@ function SearchBar() {
         <input
           type="text"
           value={movieTitle}
-          onChange={(e) => setMovieTitle(e.target.value)} // Update state on input change
+          onChange={(e) => setMovieTitle(e.target.value)} 
           placeholder="Enter movie title"
           className="border p-2 rounded-lg"
         />
