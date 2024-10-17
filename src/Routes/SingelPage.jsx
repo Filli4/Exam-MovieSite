@@ -22,12 +22,24 @@ function SingelPage() {
   const handleAddFavorite = () => {
     if (movieDetail) {
       dispatch(addFavorite(movieDetail)); 
+      
+      window.dataLayer.push({
+        event: 'add_to_favorites',
+        movieTitle: movieDetail.Title,
+        movieId: movieDetail.imdbID,
+      });
     }
   };
 
   const handleRemoveFavorite = () => {
     if (movieDetail) {
       dispatch(removeFavorite(movieDetail)); 
+
+      window.dataLayer.push({
+        event: 'remove_from_favorites',
+        movieTitle: movieDetail.Title,
+        movieId: movieDetail.imdbID,
+      });
     }
   };
 
