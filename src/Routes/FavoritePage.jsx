@@ -3,12 +3,17 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import NavigationMenu from '../Components/NavigationMenu';
 import MovieCard from '../Components/MovieCard';
-
+import { Helmet } from 'react-helmet'; 
 function FavoritePage() {
   const favorites = useSelector((state) => state.favorites.items); 
 
   return (
     <div className='bg-orange-600'>
+      <Helmet>
+        <title>Your Favorite Movies</title>
+        <meta name="description" content="Browse your favorite movies and TV shows." />
+        <link rel="canonical" href={window.location.href} />
+      </Helmet>
       <NavigationMenu />
       <h1 className="text-center text-2xl font-semibold mb-4">Favorite Movies & TV Shows</h1>
       <div className="flex flex-wrap justify-center ">
