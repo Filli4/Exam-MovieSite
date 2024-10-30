@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const ApiKey = "a02a3bfa";
+
 
 export const FetchMovies = createAsyncThunk(
   "Movies/FetchMovies",
   async (movieTitle) => {
     try {
       const response = await fetch(
-        `https://www.omdbapi.com/?s=${movieTitle}&type=movie&apikey=${ApiKey}`,
+        `https://www.omdbapi.com/?s=${movieTitle}&type=movie&apikey=${import.meta.env.VITE_OMDB_API_KEY}`,
       );
 
       if (!response.ok) {
