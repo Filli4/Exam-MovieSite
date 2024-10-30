@@ -7,14 +7,14 @@ export const FetchTvShows = createAsyncThunk(
   "TvShows/FetchTvShows",
   async (tvShowTitle) => {
     try {
-      const response = await fetch(`http://www.omdbapi.com/?s=${tvShowTitle}&type=series&apikey=${ApiKey}`);
+      const response = await fetch(`https://www.omdbapi.com/?s=${tvShowTitle}&type=series&apikey=${ApiKey}`);
       
       if (!response.ok) {
         throw new Error("Failed to fetch TV show data");
       }
       
       const data = await response.json();
-      return data;
+      return data.Search || [];
     } catch (error) {
       console.error(error);
       throw error; 
@@ -25,7 +25,7 @@ export const FetchTvShows = createAsyncThunk(
 const tvShowsSlice = createSlice({
   name: "TvShows",
   initialState: {
-    data: null,
+    data: null || [],
     loading: false,
     error: null,
   },

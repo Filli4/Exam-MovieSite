@@ -7,7 +7,7 @@ export const FetchMoviesAndTvShows = createAsyncThunk(
   "MoviesAndTvShows/FetchMoviesAndTvShows",  
   async (movieTitle) => {
     try {
-      const response = await fetch(`http://www.omdbapi.com/?s=${movieTitle}&apikey=${ApiKey}`);
+      const response = await fetch(`https://www.omdbapi.com/?s=${movieTitle}&apikey=${ApiKey}`);
       
       if (!response.ok) {
         throw new Error("Failed to fetch Movie data");
@@ -27,7 +27,7 @@ export const FetchMovieById = createAsyncThunk(
   "MoviesAndTvShows/FetchMovieById",
   async (imdbID) => {
     try {
-      const response = await fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=${ApiKey}`);
+      const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${ApiKey}`);
       
       if (!response.ok) {
         throw new Error("Failed to fetch Movie details");

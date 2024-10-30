@@ -10,7 +10,7 @@ function FilmListPage() {
 
   const { data: movies = null, loading = false, error = null } = 
   
-  useSelector((state) => state.Movies || {});
+  useSelector((state) => state.Movies || { data: [] });
 
   useEffect(() => {
    
@@ -38,12 +38,10 @@ console.log(movies);
       <NavigationMenu />
       <h1 className="text-center text-2xl font-semibold mb-4">Movies</h1>
       <div className="flex flex-wrap justify-center bg-orange-600">
-        {movies?.Search?.map((movie) => (
-          <MovieCard
-            key={movie.imdbID}
-            movie={movie}  
-          />
-        ))}
+      {movies && movies.map((movie) => (
+    <MovieCard key={movie.imdbID} 
+    movie={movie} />
+  ))}
       </div>
     </div>
   );

@@ -38,10 +38,10 @@ const TvListPage = () => {
       <h1 className="text-center text-2xl font-semibold mb-4">Tv Shows</h1>
       <div className="flex flex-wrap justify-center bg-orange-600">
         
-        {series?.Search?.map((show) => (
+        {series && series.map((show) => (
           <MovieCard
             key={show.imdbID}
-            movie={show}  
+            movie2={show}  
           />
         ))}
       </div>
