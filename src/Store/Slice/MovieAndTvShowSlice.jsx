@@ -27,7 +27,7 @@ export const FetchMovieById = createAsyncThunk(
   "MoviesAndTvShows/FetchMovieById",
   async (imdbID) => {
     try {
-      const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${ApiKey}`);
+      const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=${import.meta.env.VITE_OMDB_API_KEY}`);
       
       if (!response.ok) {
         throw new Error("Failed to fetch Movie details");
